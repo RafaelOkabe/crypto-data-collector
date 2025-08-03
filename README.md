@@ -75,7 +75,7 @@ O programa irá coletar os dados da API e carregá-los na tabela do BigQuery esp
 
 ## Dashboard Looker
 
-[![Ver Dashboard](https://img.shields.io/badge/Ver%20Dashboard-blue)](https://lookerstudio.google.com/s/tvc2xy50wks)
+Veja meu dashboard do Looker aqui: [![Ver Dashboard](https://img.shields.io/badge/Ver%20Dashboard-blue)](https://lookerstudio.google.com/s/tvc2xy50wks)
 
 ## Contato
 

@@ -27,9 +27,15 @@ O esquema do banco de dados é simples e eficiente para o propósito deste proje
     * `maxSupply`: Quantidade máxima possível.
 
 * **price**
-  * `id`: Identificador da criptomoeda (ex: 'bitcoin', 'ethereum').
-  * `priceUsd`: Preço da criptomoeda em dólares americanos. O tipo `NUMERIC` garante alta precisão.
-  * `date`: Data da coleta dos dados.
+    * `id`: Identificador da criptomoeda (ex: 'bitcoin', 'ethereum').
+    * `priceUsd`: Preço da criptomoeda em dólares americanos. O tipo `NUMERIC` garante alta precisão.
+    * `date`: Data da coleta dos dados.
+
+### Possível criação de pipeline
+
+O projeto em si não é completo e não possui um esquema de pipeline, porém ele permite a criação de uma pipeline simples caso desejar. Abaixo um exemplo do cenário que pode ser criado.
+
+![Esquema de pipeline no GCP](assets/FluxoGCPpip.jpg)
 
 ---
 
@@ -37,15 +43,16 @@ O esquema do banco de dados é simples e eficiente para o propósito deste proje
 
 ### Pré-requisitos
 
-* Python 3.8+
 * Conta no Google Cloud Platform (GCP) com um projeto ativo.
 * Credenciais da API da CoinCap.
+
+Todos os requisitos acima são fornecidos pelo criador para teste, ou se preferir crie o seu ambiente.
 
 ### 1. Configuração do Ambiente
 
 1.  Clone este repositório:
-    `git clone <URL_DO_SEU_REPOSITORIO>`
-    `cd <nome_do_repositorio>`
+    `git clone https://github.com/RafaelOkabe/crypto-data-collector.git`
+    `cd crypto-data-collector`
 
 2.  Instale as dependências do Python:
     `pip install -r requirements.txt`
@@ -54,9 +61,6 @@ O esquema do banco de dados é simples e eficiente para o propósito deste proje
 
     ```bash
     COINCAP_API_KEY="sua_chave_da_api"
-    BQ_PROJECT_ID="seu_id_do_projeto_gcp"
-    BQ_DATASET="nome_do_seu_dataset_no_bigquery"
-    BQ_TABLE="nome_da_sua_tabela"
     GOOGLE_APPLICATION_CREDENTIALS="caminho/para/seu/arquivo/credentials.json"
     ```
 
@@ -65,19 +69,10 @@ O esquema do banco de dados é simples e eficiente para o propósito deste proje
 ### 2. Execução do Programa
 
 Basta executar o script principal:
-`python main.py`
+`python src/main.py`
 
 O programa irá coletar os dados da API e carregá-los na tabela do BigQuery especificada.
 
-### 3. Dashboard no Looker Studio
-
-1.  Acesse o **Google Looker Studio**.
-2.  Crie uma nova fonte de dados e selecione o conector do **BigQuery**.
-3.  Selecione seu projeto, dataset e a tabela `crypto_data`.
-4.  Crie um dashboard visualizando a evolução dos preços das criptomoedas ao longo do tempo.
-
----
-
 ## Contato
 
-* **Seu Nome** - [Seu Perfil do GitHub](https://github.com/seu-usuario)
+* **Rafael Y. Okabe** - (https://www.linkedin.com/in/rafael-yoshio-okabe-b58b3b136/)

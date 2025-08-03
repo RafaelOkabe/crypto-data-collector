@@ -5,13 +5,11 @@ from dotenv import load_dotenv
 from datetime import datetime
 from decimal import Decimal
 from google.cloud import bigquery
+from config import BQ_PROJECT_ID, BQ_DATASET, BQ_TABLE, ids
 
 # Carrega as variáveis de ambiente
 load_dotenv()
 api_key = os.getenv("COINCAP_API_KEY")
-bq_project = os.getenv("BQ_PROJECT_ID")
-bq_dataset = os.getenv("BQ_DATASET")
-bq_table = os.getenv("BQ_TABLE")
 # Define o caminho para o arquivo de credenciais do Google Cloud
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 
@@ -44,9 +42,9 @@ df = pd.DataFrame(rows)
 df['id'] = df['id'].astype(pd.StringDtype())
 
 # Inicializa o client do BigQuery usando o projeto configurado
-client = bigquery.Client(project=bq_project)
+client = bigquery.Client(project=BQ_PROJECT_ID)
 # Monta o identificador completo da tabela (projeto.dataset.tabela)
-table_id = f"{bq_project}.{bq_dataset}.{bq_table}"
+table_id = f"{BQ_PROJECT_ID}.{BQ_DATASET}.{BQ_TABLE}"
 
 # Configura o job de carregamento, especificando que os novos dados devem ser adicionados
 # ao final da tabela, sem apagar o conteúdo existente
@@ -59,4 +57,5 @@ job = client.load_table_from_dataframe(df, table_id, job_config=job_config)
 # Aguarda o job de carregamento ser concluído
 job.result()
 
+print(df)
 print("Dados enviados ao BigQuery com sucesso!")

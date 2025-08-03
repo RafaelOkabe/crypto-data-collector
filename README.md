@@ -19,9 +19,17 @@ O esquema do banco de dados é simples e eficiente para o propósito deste proje
 
 ![Esquema de tabelas no BigQuery](assets/DiagramCrypto.jpg)
 
-* `id`: Identificador da criptomoeda (ex: 'bitcoin', 'ethereum').
-* `priceUsd`: Preço da criptomoeda em dólares americanos. O tipo `NUMERIC` garante alta precisão.
-* `date`: Data da coleta dos dados.
+* **coin**
+    * `id`: Identificador da criptomoeda (ex: 'bitcoin', 'ethereum').
+    * `name`: Nome comercial da criptomoeda.
+    * `symbol`: Ticker (abreviação) utilizado em comércio.
+    * `rank`: Posição no ranking de mercado.
+    * `maxSupply`: Quantidade máxima possível.
+
+* **price**
+  * `id`: Identificador da criptomoeda (ex: 'bitcoin', 'ethereum').
+  * `priceUsd`: Preço da criptomoeda em dólares americanos. O tipo `NUMERIC` garante alta precisão.
+  * `date`: Data da coleta dos dados.
 
 ---
 

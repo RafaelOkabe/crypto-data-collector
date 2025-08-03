@@ -73,6 +73,10 @@ Basta executar o script principal:
 
 O programa irá coletar os dados da API e carregá-los na tabela do BigQuery especificada.
 
+## Dashboard Looker
+
+Veja meu dashboard do Looker aqui: [![Ver Dashboard](https://img.shields.io/badge/Ver%20Dashboard-blue)](https://lookerstudio.google.com/s/tvc2xy50wks)
+
 ## Contato
 
 * **Rafael Y. Okabe** - (https://www.linkedin.com/in/rafael-yoshio-okabe-b58b3b136/)
